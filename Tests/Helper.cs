@@ -6,7 +6,7 @@ namespace Tests;
 
 public static class Helper
 {
-    public static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("pgconn")!);
+    public static readonly Uri Uri = new Uri("postgres://tczulatt:ndNH_gbumDWCNytD3QCUsPt8vsHLEK7i@snuffleupagus.db.elephantsql.com/tczulatt");
 
     public static readonly string
         ProperlyFormattedConnectionString = string.Format(
