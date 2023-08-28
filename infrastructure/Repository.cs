@@ -21,12 +21,17 @@ public class Repository
             return conn.Query<Book>(sql);
         }
     }
-
-
-    public Book CreateBook(string title, string publisher, string coverImgUrl)
+    
+    public IEnumerable<News> GetAllNews()
     {
-        throw new NotImplementedException();
+        var sql = $@"select * from news.articles;";
+        using(var conn = _dataSource.OpenConnection())
+        {
+            return conn.Query<News>(sql);
+        }
     }
 
+
+    
 
 }

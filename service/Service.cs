@@ -23,10 +23,17 @@ public class Service
             throw new Exception("Could not get books");
         }
     }
-
-    public Book CreateBook(string title, string publisher, string coverImgUrl)
+    public IEnumerable<News> GetAllNews()
     {
-        throw new NotImplementedException();
+        try
+        {
+            return _repository.GetAllNews();
+        }
+        catch (Exception)
+        {
+            throw new Exception("Could not get news feed");
+        }
     }
+    
 
 }
