@@ -12,5 +12,19 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseCors(options =>
+
+{
+
+    options.SetIsOriginAllowed(origin => true)
+
+        .AllowAnyMethod()
+
+        .AllowAnyHeader()
+
+        .AllowCredentials();
+
+});
 app.MapControllers();
 app.Run();
