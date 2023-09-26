@@ -9,6 +9,11 @@ builder.Services.AddSingleton<Service>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var frontEndRelativePath = "./../frontend/www";
+
+builder.Services.AddSpaStaticFiles(conf => conf.RootPath = frontEndRelativePath);
+
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -26,5 +31,16 @@ app.UseCors(options =>
         .AllowCredentials();
 
 });
+
+app.UseSpaStaticFiles();
+
+app.UseSpa(conf =>
+
+{
+
+    conf.Options.SourcePath = frontEndRelativePath;
+
+});
+
 app.MapControllers();
 app.Run();
